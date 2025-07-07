@@ -11,6 +11,7 @@
 	import dayjs from '$lib/dayjs';
 	import calendar from 'dayjs/plugin/calendar';
 	import Loader from '../common/Loader.svelte';
+	import { BASE_PATH } from '$lib/constants';
 	dayjs.extend(calendar);
 
 	export let show = false;
@@ -158,7 +159,7 @@
 						idx
 							? 'bg-gray-50 dark:bg-gray-850'
 							: ''}"
-						href="/c/{chat.id}"
+						href={`${BASE_PATH}/c/${chat.id}`}
 						draggable="false"
 						data-arrow-selected={selectedIdx === idx ? 'true' : undefined}
 						on:mouseenter={() => {

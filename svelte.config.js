@@ -17,6 +17,9 @@ const config = {
 			assets: 'build',
 			fallback: 'index.html'
 		}),
+    paths: {
+      base: '/openwebui',  // 👈 设置统一 base 路径
+    },
 		// poll for new version name every 60 seconds (to trigger reload mechanic in +layout.svelte)
 		version: {
 			name: (() => {

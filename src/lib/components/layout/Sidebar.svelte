@@ -42,7 +42,7 @@
 		importChat
 	} from '$lib/apis/chats';
 	import { createNewFolder, getFolders, updateFolderParentIdById } from '$lib/apis/folders';
-	import { WEBUI_BASE_URL } from '$lib/constants';
+	import { BASE_PATH } from '$lib/constants';
 
 	import ArchivedChatsModal from './ArchivedChatsModal.svelte';
 	import UserMenu from './Sidebar/UserMenu.svelte';
@@ -486,7 +486,7 @@
 			<a
 				id="sidebar-new-chat-button"
 				class="flex justify-between items-center flex-1 rounded-lg px-2 py-1 h-full text-right hover:bg-gray-100 dark:hover:bg-gray-900 transition no-drag-region"
-				href="/"
+				href="{`${BASE_PATH}/`}"
 				draggable="false"
 				on:click={async () => {
 					selectedChatId = null;
@@ -503,7 +503,7 @@
 					<div class="self-center mx-1.5">
 						<img
 							crossorigin="anonymous"
-							src="{WEBUI_BASE_URL}/static/favicon.png"
+							src={`${BASE_PATH}/static/favicon.png`}
 							class="sidebar-new-chat-icon size-5 -translate-x-1.5 rounded-full"
 							alt="logo"
 						/>
@@ -567,7 +567,7 @@
 			<div class="px-1.5 flex justify-center text-gray-800 dark:text-gray-200">
 				<a
 					class="grow flex items-center space-x-3 rounded-lg px-2 py-[7px] hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-					href="/notes"
+					href={`${BASE_PATH}/notes`}
 					on:click={() => {
 						selectedChatId = null;
 						chatId.set('');
@@ -609,7 +609,7 @@
 			<div class="px-1.5 flex justify-center text-gray-800 dark:text-gray-200">
 				<a
 					class="grow flex items-center space-x-3 rounded-lg px-2 py-[7px] hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-					href="/workspace"
+					href={`${BASE_PATH}/workspace`}
 					on:click={() => {
 						selectedChatId = null;
 						chatId.set('');
@@ -653,7 +653,7 @@
 							<div class="px-1.5 flex justify-center text-gray-800 dark:text-gray-200">
 								<a
 									class="grow flex items-center space-x-2.5 rounded-lg px-2 py-[7px] hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-									href="/?model={modelId}"
+									href="{BASE_PATH}/?model={modelId}"
 									on:click={() => {
 										selectedChatId = null;
 										chatId.set('');
@@ -667,7 +667,7 @@
 									<div class="self-center shrink-0">
 										<img
 											crossorigin="anonymous"
-											src={model?.info?.meta?.profile_image_url ?? '/static/favicon.png'}
+											src={model?.info?.meta?.profile_image_url ?? `${BASE_PATH}/static/favicon.png`}
 											class=" size-5 rounded-full -translate-x-[0.5px]"
 											alt="logo"
 										/>

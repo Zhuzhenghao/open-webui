@@ -1,5 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
+  import { BASE_PATH } from '$lib/constants';
 	import { createNewTool, getTools } from '$lib/apis/tools';
 	import ToolkitEditor from '$lib/components/workspace/Tools/ToolkitEditor.svelte';
 	import { WEBUI_VERSION } from '$lib/constants';
@@ -47,7 +48,7 @@
 			toast.success($i18n.t('Tool created successfully'));
 			tools.set(await getTools(localStorage.token));
 
-			await goto('/workspace/tools');
+			await goto(`${BASE_PATH}/workspace/tools`);
 		}
 	};
 

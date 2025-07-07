@@ -1,5 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
+  import { BASE_PATH } from '$lib/constants';
 	import { page } from '$app/stores';
 	import { getToolById, getTools, updateToolById } from '$lib/apis/tools';
 	import Spinner from '$lib/components/common/Spinner.svelte';
@@ -58,7 +59,7 @@
 		if (id) {
 			tool = await getToolById(localStorage.token, id).catch((error) => {
 				toast.error(`${error}`);
-				goto('/workspace/tools');
+				goto(`${BASE_PATH}/workspace/tools`);
 				return null;
 			});
 

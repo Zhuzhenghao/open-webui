@@ -21,7 +21,7 @@ ARG UID=0
 ARG GID=0
 
 ######## WebUI frontend ########
-FROM --platform=$BUILDPLATFORM node:22-alpine3.20 AS build
+FROM --platform=$BUILDPLATFORM m.daocloud.io/docker.io/node:22-alpine3.20 AS build
 ARG BUILD_HASH
 
 WORKDIR /app
@@ -34,10 +34,11 @@ RUN npm ci
 
 COPY . .
 ENV APP_BUILD_HASH=${BUILD_HASH}
+ENV NODE_OPTIONS=--max-old-space-size=4096
 RUN npm run build
 
 ######## WebUI backend ########
-FROM python:3.11-slim-bookworm AS base
+FROM m.daocloud.io/docker.io/python:3.11-slim-bookworm AS base
 
 # Use args
 ARG USE_CUDA
@@ -108,7 +109,14 @@ RUN echo -n 00000000-0000-0000-0000-000000000000 > $HOME/.cache/chroma/telemetry
 # Make sure the user has access to the app and root directory
 RUN chown -R $UID:$GID /app $HOME
 
-RUN if [ "$USE_OLLAMA" = "true" ]; then \
+# 设置国内 APT 源（阿里云）
+RUN echo "deb http://mirrors.aliyun.com/debian bookworm main contrib non-free non-free-firmware\n\
+deb http://mirrors.aliyun.com/debian bookworm-updates main contrib non-free non-free-firmware\n\
+deb http://mirrors.aliyun.com/debian-security bookworm-security main contrib non-free non-free-firmware" \
+> /etc/apt/sources.list
+
+RUN echo "USE_OLLAMA is '$USE_OLLAMA'" && \
+  if [ "$USE_OLLAMA" = "true" ]; then \
     apt-get update && \
     # Install pandoc and netcat
     apt-get install -y --no-install-recommends git build-essential pandoc netcat-openbsd curl && \
@@ -134,6 +142,8 @@ RUN if [ "$USE_OLLAMA" = "true" ]; then \
 
 # install python dependencies
 COPY --chown=$UID:$GID ./backend/requirements.txt ./requirements.txt
+
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 RUN pip3 install --no-cache-dir uv && \
     if [ "$USE_CUDA" = "true" ]; then \

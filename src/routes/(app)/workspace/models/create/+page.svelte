@@ -2,6 +2,7 @@
 	import { v4 as uuidv4 } from 'uuid';
 	import { toast } from 'svelte-sonner';
 	import { goto } from '$app/navigation';
+  import { BASE_PATH } from '$lib/constants';
 	import { config, models, settings } from '$lib/stores';
 
 	import { onMount, tick, getContext } from 'svelte';
@@ -30,7 +31,7 @@
 				...modelInfo,
 				meta: {
 					...modelInfo.meta,
-					profile_image_url: modelInfo.meta.profile_image_url ?? '/static/favicon.png',
+					profile_image_url: modelInfo.meta.profile_image_url ?? `${BASE_PATH}/static/favicon.png`,
 					suggestion_prompts: modelInfo.meta.suggestion_prompts
 						? modelInfo.meta.suggestion_prompts.filter((prompt) => prompt.content !== '')
 						: null
@@ -49,7 +50,7 @@
 					)
 				);
 				toast.success($i18n.t('Model created successfully!'));
-				await goto('/workspace/models');
+				await goto(`${BASE_PATH}/workspace/models`);
 			}
 		}
 	};

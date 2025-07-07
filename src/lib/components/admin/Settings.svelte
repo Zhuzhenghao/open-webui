@@ -23,6 +23,7 @@
 	import Evaluations from './Settings/Evaluations.svelte';
 	import CodeExecution from './Settings/CodeExecution.svelte';
 	import Tools from './Settings/Tools.svelte';
+	import { BASE_PATH } from '$lib/constants';
 
 	const i18n = getContext('i18n');
 
@@ -92,7 +93,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/general');
+				goto(`${BASE_PATH}/admin/settings/general`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -119,7 +120,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/connections');
+				goto(`${BASE_PATH}/admin/settings/connections`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -144,7 +145,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/models');
+				goto(`${BASE_PATH}/admin/settings/models`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -171,7 +172,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/evaluations');
+				goto(`${BASE_PATH}/admin/settings/evaluations`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -187,7 +188,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/tools');
+				goto(`${BASE_PATH}/admin/settings/tools`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -214,7 +215,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/documents');
+				goto(`${BASE_PATH}/admin/settings/documents`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -245,7 +246,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/web');
+				goto(`${BASE_PATH}/admin/settings/web`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -270,7 +271,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/code-execution');
+				goto(`${BASE_PATH}/admin/settings/code-execution`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -297,7 +298,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/interface');
+				goto(`${BASE_PATH}/admin/settings/interface`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -324,7 +325,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/audio');
+				goto(`${BASE_PATH}/admin/settings/audio`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -352,7 +353,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/images');
+				goto(`${BASE_PATH}/admin/settings/images`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -379,7 +380,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/pipelines');
+				goto(`${BASE_PATH}/admin/settings/pipelines`);
 			}}
 		>
 			<div class=" self-center mr-2">
@@ -410,7 +411,7 @@
 				? ''
 				: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 			on:click={() => {
-				goto('/admin/settings/db');
+				goto(`${BASE_PATH}/admin/settings/db`);
 			}}
 		>
 			<div class=" self-center mr-2">

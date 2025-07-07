@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { settings, playingNotificationSound, isLastActiveTab } from '$lib/stores';
 	import DOMPurify from 'dompurify';
+  import { BASE_PATH } from '$lib/constants';
 
 	import { marked } from 'marked';
 	import { createEventDispatcher, onMount } from 'svelte';
@@ -38,7 +39,7 @@
 	}}
 >
 	<div class="shrink-0 self-top -translate-y-0.5">
-		<img src={'/static/favicon.png'} alt="favicon" class="size-7 rounded-full" />
+		<img src={`${BASE_PATH}/static/favicon.png`} alt="favicon" class="size-7 rounded-full" />
 	</div>
 
 	<div>

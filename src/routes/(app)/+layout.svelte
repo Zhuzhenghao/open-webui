@@ -7,6 +7,7 @@
 	import mermaid from 'mermaid';
 
 	import { goto } from '$app/navigation';
+  import { BASE_PATH } from '$lib/constants';
 	import { page } from '$app/stores';
 	import { fade } from 'svelte/transition';
 
@@ -57,7 +58,7 @@
 
 	onMount(async () => {
 		if ($user === undefined || $user === null) {
-			await goto('/auth');
+			await goto(`${BASE_PATH}/auth`);
 		} else if (['user', 'admin'].includes($user?.role)) {
 			try {
 				// Check if IndexedDB exists
@@ -200,7 +201,7 @@
 					event.preventDefault();
 					console.log('temporaryChat');
 					temporaryChatEnabled.set(!$temporaryChatEnabled);
-					await goto('/');
+					await goto(`${BASE_PATH}/`);
 					const newChatButton = document.getElementById('new-chat-button');
 					setTimeout(() => {
 						newChatButton?.click();

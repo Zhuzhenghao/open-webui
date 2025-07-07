@@ -35,6 +35,7 @@
 	import EyeSlash from '$lib/components/icons/EyeSlash.svelte';
 	import Eye from '$lib/components/icons/Eye.svelte';
 	import { copyToClipboard } from '$lib/utils';
+	import { BASE_PATH } from '$lib/constants';
 
 	let shiftKey = false;
 
@@ -326,7 +327,7 @@
 										: 'opacity-50 dark:opacity-50'} "
 								>
 									<img
-										src={model?.meta?.profile_image_url ?? '/static/favicon.png'}
+										src={model?.meta?.profile_image_url ?? `${BASE_PATH}/static/favicon.png`}
 										alt="modelfile profile"
 										class=" rounded-full w-full h-auto object-cover"
 									/>

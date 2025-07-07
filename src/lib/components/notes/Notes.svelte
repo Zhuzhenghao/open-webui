@@ -44,6 +44,7 @@
 	import NoteMenu from './Notes/NoteMenu.svelte';
 	import FilesOverlay from '../chat/MessageInput/FilesOverlay.svelte';
 	import { marked } from 'marked';
+	import { BASE_PATH } from '$lib/constants';
 
 	const i18n = getContext('i18n');
 	let loaded = false;
@@ -78,7 +79,7 @@
 		});
 
 		if (res) {
-			goto(`/notes/${res.id}`);
+			goto(`${BASE_PATH}/notes/${res.id}`);
 		}
 	};
 
@@ -308,7 +309,7 @@
 								>
 									<div class=" flex flex-1 space-x-4 cursor-pointer w-full">
 										<a
-											href={`/notes/${note.id}`}
+											href={`${BASE_PATH}/notes/${note.id}`}
 											class="w-full -translate-y-0.5 flex flex-col justify-between"
 										>
 											<div class="flex-1">

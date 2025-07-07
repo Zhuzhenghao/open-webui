@@ -7,6 +7,7 @@
 	import Feedbacks from './Evaluations/Feedbacks.svelte';
 
 	import { getAllFeedbacks } from '$lib/apis/evaluations';
+	import { BASE_PATH } from '$lib/constants';
 
 	const i18n = getContext('i18n');
 
@@ -65,7 +66,7 @@
 					? ''
 					: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 				on:click={() => {
-					goto('/admin/evaluations/leaderboard');
+					goto(`${BASE_PATH}/admin/evaluations/leaderboard`);
 				}}
 			>
 				<div class=" self-center mr-2">
@@ -92,7 +93,7 @@
 					? ''
 					: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 				on:click={() => {
-					goto('/admin/evaluations/feedbacks');
+					goto(`${BASE_PATH}/admin/evaluations/feedbacks`);
 				}}
 			>
 				<div class=" self-center mr-2">

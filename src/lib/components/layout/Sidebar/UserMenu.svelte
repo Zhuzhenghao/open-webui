@@ -21,6 +21,7 @@
 	import Code from '$lib/components/icons/Code.svelte';
 	import UserGroup from '$lib/components/icons/UserGroup.svelte';
 	import SignOut from '$lib/components/icons/SignOut.svelte';
+	import { BASE_PATH } from '$lib/constants';
 
 	const i18n = getContext('i18n');
 
@@ -110,7 +111,7 @@
 				<button
 					class="flex rounded-md py-1.5 px-3 w-full hover:bg-gray-50 dark:hover:bg-gray-800 transition"
 					on:click={() => {
-						goto('/playground');
+						goto(`${BASE_PATH}/playground`);
 						show = false;
 
 						if ($mobile) {
@@ -127,7 +128,7 @@
 				<button
 					class="flex rounded-md py-1.5 px-3 w-full hover:bg-gray-50 dark:hover:bg-gray-800 transition"
 					on:click={() => {
-						goto('/admin');
+						goto(`${BASE_PATH}/admin`);
 						show = false;
 
 						if ($mobile) {

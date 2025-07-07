@@ -1,6 +1,7 @@
 import { browser, dev } from '$app/environment';
+import { base } from '$app/paths';
 // import { version } from '../../package.json';
-
+export const BASE_PATH = base;
 export const APP_NAME = 'Open WebUI';
 
 export const WEBUI_HOSTNAME = browser ? (dev ? `${location.hostname}:8080` : ``) : '';

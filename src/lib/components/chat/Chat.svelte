@@ -12,7 +12,7 @@
 
 	import { get, type Unsubscriber, type Writable } from 'svelte/store';
 	import type { i18n as i18nType } from 'i18next';
-	import { WEBUI_BASE_URL } from '$lib/constants';
+	import { BASE_PATH, WEBUI_BASE_URL } from '$lib/constants';
 
 	import {
 		chatId,
@@ -178,7 +178,7 @@
 				const chatInput = document.getElementById('chat-input');
 				chatInput?.focus();
 			} else {
-				await goto('/');
+				await goto(`${BASE_PATH}/`);
 			}
 		})();
 	}
@@ -864,7 +864,7 @@
 		}
 
 		chat = await getChatById(localStorage.token, $chatId).catch(async (error) => {
-			await goto('/');
+			goto(`${BASE_PATH}/`);
 			return null;
 		});
 
@@ -1967,7 +1967,7 @@
 			await chats.set(await getChatList(localStorage.token, $currentChatPage));
 			currentChatPage.set(1);
 
-			window.history.replaceState(history.state, '', `/c/${_chatId}`);
+			window.history.replaceState(history.state, '', `${BASE_PATH}/c/${_chatId}`);
 		} else {
 			_chatId = 'local';
 			await chatId.set('local');

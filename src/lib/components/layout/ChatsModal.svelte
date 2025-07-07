@@ -18,6 +18,7 @@
 	import XMark from '../icons/XMark.svelte';
 	import ChevronUp from '../icons/ChevronUp.svelte';
 	import ChevronDown from '../icons/ChevronDown.svelte';
+	import { BASE_PATH } from '$lib/constants';
 
 	const i18n = getContext('i18n');
 
@@ -232,7 +233,7 @@
 								>
 									<a
 										class=" basis-3/5"
-										href={shareUrl ? `/s/${chat.id}` : `/c/${chat.id}`}
+										href={shareUrl ? `${BASE_PATH}/s/${chat.id}` : `${BASE_PATH}/c/${chat.id}`}
 										on:click={() => (show = false)}
 									>
 										<div class="text-ellipsis line-clamp-1 w-full">

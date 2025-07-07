@@ -3,6 +3,7 @@
 
 	import { getContext, tick } from 'svelte';
 	import dayjs from '$lib/dayjs';
+  import { BASE_PATH } from '$lib/constants';
 
 	import { mobile, settings, user } from '$lib/stores';
 
@@ -73,7 +74,7 @@
 			<div class="flex items-center min-w-fit">
 				<Tooltip content={$user?.role === 'admin' ? (item?.value ?? '') : ''} placement="top-start">
 					<img
-						src={item.model?.info?.meta?.profile_image_url ?? '/static/favicon.png'}
+						src={item.model?.info?.meta?.profile_image_url ?? `${BASE_PATH}/static/favicon.png`}
 						alt="Model"
 						class="rounded-full size-5 flex items-center"
 					/>

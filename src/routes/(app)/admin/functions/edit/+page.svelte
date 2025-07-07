@@ -3,6 +3,7 @@
 	import { onMount, getContext } from 'svelte';
 
 	import { goto } from '$app/navigation';
+  import { BASE_PATH } from '$lib/constants';
 	import { page } from '$app/stores';
 	import { config, functions, models, settings } from '$lib/stores';
 	import { updateFunctionById, getFunctions, getFunctionById } from '$lib/apis/functions';
@@ -64,7 +65,7 @@
 		if (id) {
 			func = await getFunctionById(localStorage.token, id).catch((error) => {
 				toast.error(`${error}`);
-				goto('/admin/functions');
+				goto(`${BASE_PATH}/admin/functions`);
 				return null;
 			});
 

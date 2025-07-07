@@ -3,6 +3,7 @@
 
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { tick, getContext } from 'svelte';
+  import { BASE_PATH } from '$lib/constants';
 
 	import { models } from '$lib/stores';
 
@@ -92,7 +93,7 @@
 						>
 							<div class="flex font-medium text-black dark:text-gray-100 line-clamp-1">
 								<img
-									src={model?.info?.meta?.profile_image_url ?? '/static/favicon.png'}
+									src={model?.info?.meta?.profile_image_url ?? `${BASE_PATH}/static/favicon.png`}
 									alt={model?.name ?? model.id}
 									class="rounded-full size-6 items-center mr-2"
 								/>

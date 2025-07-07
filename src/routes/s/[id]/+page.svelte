@@ -2,6 +2,7 @@
 	import { onMount, tick, getContext } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { BASE_PATH } from '$lib/constants';
 
 	import dayjs from 'dayjs';
 
@@ -51,7 +52,7 @@
 				await tick();
 				loaded = true;
 			} else {
-				await goto('/');
+				await goto(`${BASE_PATH}/`);
 			}
 		})();
 	}
@@ -88,7 +89,7 @@
 		);
 		await chatId.set($page.params.id);
 		chat = await getChatByShareId(localStorage.token, $chatId).catch(async (error) => {
-			await goto('/');
+			await goto(`${BASE_PATH}/`);
 			return null;
 		});
 
@@ -137,7 +138,8 @@
 		});
 
 		if (res) {
-			goto(`/c/${res.id}`);
+			// goto(`/c/${res.id}`);
+      goto(`${BASE_PATH}/c/${res.id}`);
 		}
 	};
 </script>

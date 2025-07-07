@@ -16,7 +16,7 @@
 	import { goto } from '$app/navigation';
 
 	import { compressImage, copyToClipboard, splitStream } from '$lib/utils';
-	import { WEBUI_API_BASE_URL, WEBUI_BASE_URL } from '$lib/constants';
+	import { BASE_PATH, WEBUI_API_BASE_URL, WEBUI_BASE_URL } from '$lib/constants';
 	import { uploadFile } from '$lib/apis/files';
 
 	import dayjs from '$lib/dayjs';
@@ -117,7 +117,7 @@
 			note = res;
 			files = res.data.files || [];
 		} else {
-			goto('/');
+			goto(`${BASE_PATH}/`);
 			return;
 		}
 
@@ -466,7 +466,7 @@
 
 		if (res) {
 			toast.success($i18n.t('Note deleted successfully'));
-			goto('/notes');
+			goto(`${BASE_PATH}/notes`);
 		} else {
 			toast.error($i18n.t('Failed to delete note'));
 		}
