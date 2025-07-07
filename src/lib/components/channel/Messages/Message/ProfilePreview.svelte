@@ -2,7 +2,7 @@
 	import { DropdownMenu } from 'bits-ui';
 
 	import { flyAndScale } from '$lib/utils/transitions';
-	import { WEBUI_BASE_URL } from '$lib/constants';
+	import { BASE_PATH } from '$lib/constants';
 	import { getUserActiveStatusById } from '$lib/apis/users';
 
 	export let side = 'right';
@@ -53,7 +53,7 @@
 					<div class="py-8 relative bg-gray-900 rounded-t-lg">
 						<img
 							crossorigin="anonymous"
-							src={user?.profile_image_url ?? `${WEBUI_BASE_URL}/static/favicon.png`}
+							src={user?.profile_image_url ?? `${BASE_PATH}/static/favicon.png`}
 							class=" absolute -bottom-5 left-3 size-12 ml-0.5 object-cover rounded-full -translate-y-[1px]"
 							alt="profile"
 						/>

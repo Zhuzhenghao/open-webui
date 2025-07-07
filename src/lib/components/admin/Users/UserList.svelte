@@ -1,5 +1,5 @@
 <script>
-	import { WEBUI_BASE_URL } from '$lib/constants';
+	import { BASE_PATH, WEBUI_BASE_URL } from '$lib/constants';
 	import { WEBUI_NAME, config, user, showSidebar } from '$lib/stores';
 	import { goto } from '$app/navigation';
 	import { onMount, getContext } from 'svelte';
@@ -396,7 +396,7 @@
 									user.profile_image_url.startsWith('https://www.gravatar.com/avatar/') ||
 									user.profile_image_url.startsWith('data:')
 										? user.profile_image_url
-										: `/user.png`}
+										: `${BASE_PATH}/user.png`}
 									alt="user"
 								/>
 

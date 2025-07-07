@@ -2,7 +2,7 @@
 	import { getContext, onMount } from 'svelte';
 	const i18n = getContext('i18n');
 
-	import { WEBUI_BASE_URL } from '$lib/constants';
+	import { BASE_PATH } from '$lib/constants';
 
 	import Marquee from './common/Marquee.svelte';
 	import SlideShow from './common/SlideShow.svelte';
@@ -19,10 +19,10 @@
 
 			if (isDarkMode) {
 				const darkImage = new Image();
-				darkImage.src = '/static/favicon-dark.png';
+				darkImage.src = `${BASE_PATH}/static/favicon-dark.png`;
 
 				darkImage.onload = () => {
-					logo.src = '/static/favicon-dark.png';
+					logo.src = `${BASE_PATH}/static/favicon-dark.png`;
 					logo.style.filter = ''; // Ensure no inversion is applied if splash-dark.png exists
 				};
 
@@ -46,7 +46,7 @@
 					<img
 						id="logo"
 						crossorigin="anonymous"
-						src="{WEBUI_BASE_URL}/static/favicon.png"
+						src={`${BASE_PATH}/static/favicon.png`}
 						class=" w-6 rounded-full"
 						alt="logo"
 					/>
