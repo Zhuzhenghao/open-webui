@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { WEBUI_BASE_URL } from '$lib/constants';
+	import { BASE_PATH } from '$lib/constants';
 	import ImagePreview from './ImagePreview.svelte';
 
 	export let src = '';
@@ -12,7 +12,7 @@
 	export let onDismiss = () => {};
 
 	let _src = '';
-	$: _src = src.startsWith('/') ? `${WEBUI_BASE_URL}${src}` : src;
+	$: _src = src.startsWith('/') ? `${BASE_PATH}${src}` : src;
 
 	let showImagePreview = false;
 </script>

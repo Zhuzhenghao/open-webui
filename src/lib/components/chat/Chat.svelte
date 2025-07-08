@@ -440,7 +440,7 @@
 		$socket?.on('chat-events', chatEventHandler);
 
 		pageSubscribe = page.subscribe(async (p) => {
-			if (p.url.pathname === '/') {
+			if (p.url.pathname === `${BASE_PATH}/`) {
 				await tick();
 				initNewChat();
 			}

@@ -457,7 +457,7 @@
 			user.set(null);
 			localStorage.removeItem('token');
 
-			location.href = res?.redirect_url ?? '/auth';
+			location.href = res?.redirect_url ?? `${BASE_PATH}/auth`;
 		}
 	};
 
@@ -570,7 +570,6 @@
 
 			if ($config) {
 				await setupSocket($config.features?.enable_websocket ?? true);
-
 				const currentUrl = `${window.location.pathname}${window.location.search}`;
 				const encodedUrl = encodeURIComponent(currentUrl);
 
@@ -595,7 +594,7 @@
 				} else {
 					// Don't redirect if we're already on the auth page
 					// Needed because we pass in tokens from OAuth logins via URL fragments
-					if ($page.url.pathname !== '/auth') {
+					if ($page.url.pathname !== `${BASE_PATH}/auth`) {
 						await goto(`${BASE_PATH}/auth?redirect=${encodedUrl}`);
 					}
 				}
